@@ -11,9 +11,7 @@ const YT_COLUMN_TRIGGERS = core
   .getInput("youtrackColumnTriggers")
   .split(",")
   .map(x => x.trim().toLowerCase());
-
 const YT_COLUMN_TARGET = core.getInput("youtrackColumnTarget");
-
 const YT_ISSUE = "api/issues/";
 const REPO_URL = `https://github.com/${github.context.issue.owner}/${github.context.issue.repo}`;
 const PR_URL = `https://github.com/${github.context.issue.owner}/${github.context.issue.repo}/pull/${github.context.issue.number}`;
@@ -43,6 +41,8 @@ async function run() {
     console.log(`Found issues: ${tickets.join(", ")}.`);
 
     await asyncForEach(tickets, async issueId => {
+      console.log("\n");
+
       if (!(await checkIssueExist(issueId))) {
         console.log(`(Skipping) ${issueId} does not exist`);
         return;
@@ -51,8 +51,6 @@ async function run() {
       const fields = await getFields(issueId);
       const state = fields.find(x => x.name === YT_COLUMN_FIELD);
       const value = state.value && state.value.name.toLowerCase();
-
-      console.log(`Found ${fields.length} fields for issue ${issueId}`);
 
       if (!YT_COLUMN_TRIGGERS.some(x => x == value)) {
         console.log(`(Skipping) ${issueId} not found in column triggers`);
