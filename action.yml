@@ -1,0 +1,28 @@
+name: "YouTrack Move"
+description: "Move cards between YouTrack boards"
+inputs:
+  githubToken:
+    description: "GitHub Token"
+    required: true
+  youtrackProjectId:
+    description: "Issue ID prefix used in the projects"
+    required: true
+  youtrackUrl:
+    description: "Base URL of your YouTrack instance"
+    required: true
+    default: "https://my-yt.myjetbrains.com/youtrack"
+  youtrackToken:
+    description: "Youtrack permanent token"
+    required: true
+  youtrackColumnField:
+    description: "Youtrack column name type"
+    default: "Stage"
+  youtrackColumnTriggers:
+    description: "Youtrack column names that trigger the action"
+    default: "To Do, To Fix, In Progress"
+  youtrackColumnTarget:
+    description: "Youtrack column name to move issues on PR open"
+    default: "PR Open"
+runs:
+  using: "node12"
+  main: "dist/index.js"
