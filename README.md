@@ -1,6 +1,6 @@
 # action-youtrack-move
 
-> Action for moving cards between YouTrack boards.
+> Action for moving cards between YouTrack board columns.
 
 Works by doing the following:
 
