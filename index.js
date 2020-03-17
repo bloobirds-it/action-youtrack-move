@@ -35,6 +35,8 @@ async function run() {
   try {
     const tickets = await getMatchingTickets();
 
+    console.log(tickets);
+
     if (tickets.length === 0) {
       console.log("PR description does not contain any issue ID.");
       return;

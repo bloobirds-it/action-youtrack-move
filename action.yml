@@ -19,10 +19,10 @@ inputs:
     default: "Stage"
   youtrackColumnTriggers:
     description: "Youtrack column names that trigger the action"
-    default: "To Do, To Fix, In Progress"
-  youtrackColumnTarget:
-    description: "Youtrack column name to move issues on PR open"
     default: "PR Open"
+  youtrackColumnTarget:
+    description: "Youtrack column name to move issues"
+    default: "PreProd"
 runs:
   using: "node12"
   main: "dist/index.js"
