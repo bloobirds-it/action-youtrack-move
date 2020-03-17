@@ -1,5 +1,5 @@
 name: "YouTrack Move"
-description: "Move cards between YouTrack boards"
+description: "Move cards between YouTrack board columns"
 inputs:
   githubToken:
     description: "GitHub Token"
