@@ -23,6 +23,9 @@ inputs:
   youtrackColumnTarget:
     description: "Youtrack column name to move issues"
     default: "PreProd"
+branding:
+  icon: "move"
+  color: "gray-dark"
 runs:
   using: "node12"
   main: "dist/index.js"
