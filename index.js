@@ -100,7 +100,7 @@ async function getPrDescription() {
 }
 
 async function getMatchingTickets() {
-  console.log(`Checking ${ISSUE_REGEX} against the PR description`);
+  console.log(`Checking, ${ISSUE_REGEX} against the PR description`);
 
   const description = await getPrDescription();
   const matches = [...description.matchAll(ISSUE_REGEX)];
