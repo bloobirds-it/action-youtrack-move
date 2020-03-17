@@ -35,8 +35,6 @@ async function run() {
   try {
     const tickets = await getMatchingTickets();
 
-    console.log(tickets);
-
     if (tickets.length === 0) {
       console.log("PR description does not contain any issue ID.");
       return;
@@ -63,7 +61,7 @@ async function run() {
 
       await commentYT(
         issueId,
-        `New PR [#${github.context.issue.number}](${PR_URL}) opened at [${github.context.issue.owner}/${github.context.issue.repo}](${REPO_URL}) by ${github.context.actor}.`
+        `Closed PR [#${github.context.issue.number}](${PR_URL}) at [${github.context.issue.owner}/${github.context.issue.repo}](${REPO_URL}) by ${github.context.actor}.`
       );
 
       await moveIssueTarget(issueId, state.id);
@@ -107,7 +105,7 @@ async function getMatchingTickets() {
   const description = await getPrDescription();
   const matches = [...description.matchAll(ISSUE_REGEX)];
 
-  return matches.map(x => x[0]);
+  return [...new Set(matches.map(x => x[0]))];
 }
 
 async function checkIssueExist(issueId) {
