@@ -1,6 +1,14 @@
 # action-youtrack-move
 
-Action for moving cards between YouTrack boards.
+> Action for moving cards between YouTrack boards.
+
+Works by doing the following:
+
+1. Find all the tickets on the pull request description.
+2. Move those tickets to the desired column.
+3. Comment the tickets on YouTrack with the related PR.
+
+Goes well in combination with [action-youtrack-sync](https://github.com/bloobirds-it/action-youtrack-sync).
 
 ## Usage
 
@@ -25,11 +33,13 @@ jobs:
           youtrackProjectID: "BB"
 ```
 
+In this example when the PR is closed the tickets starting with _BB_ will be moved from _PR Open_ towards _PreProd_.
+
 ## Parameters
 
 #### `githubToken`
 
-Your usual GitHub token, one is available by default as `${{ secrets.GITHUB_TOKEN }}`.
+Usual GitHub token, one is available by default as `${{ secrets.GITHUB_TOKEN }}`.
 
 - **Required:** Yes
 
@@ -61,7 +71,7 @@ Name of the field which represents the ticket state.
 
 #### `youtrackColumnTriggers`
 
-Which columns will trigger the action. In other words, from which columns is the card allowed move to the target.
+From which columns is the card allowed to move to the target.
 
 - **Required:** No
 - **Default:** "To Do, To Fix, In Progress"
