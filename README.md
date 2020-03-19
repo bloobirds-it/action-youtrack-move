@@ -35,7 +35,7 @@ jobs:
 
 In this example when the PR is closed the tickets starting with _BB_ will be moved from _PR Open_ towards _PreProd_.
 
-## Input
+## Inputs
 
 #### `github-token`
 
