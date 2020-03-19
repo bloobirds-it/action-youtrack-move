@@ -37,7 +37,7 @@ In this example when the PR is closed the tickets starting with _BB_ will be mov
 
 ## Input
 
-#### `githubToken`
+#### `github-token`
 
 Usual GitHub token, one is available by default as `${{ secrets.GITHUB_TOKEN }}`.
 
