@@ -81,7 +81,7 @@ From which columns is the card allowed to move to the target.
 To which column should the related tickets be moved.
 
 - **Required:** No
-- **Default:** "PR Open"
+- **Default:** "PreProd"
 
 ## License
 
